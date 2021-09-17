@@ -39,3 +39,5 @@ An optional program may or may not be required, depending on desire or need etc.
 
 Many of the programs have earlier versions, screenshots and information at the AutoIt Forum.
 https://www.autoitscript.com/forum/topic/192209-kindebook-suite-bugfixes/
+
+NOTE - Other unrelated programs of mine, can be found under a different developer name - https://github.com/Twombs
