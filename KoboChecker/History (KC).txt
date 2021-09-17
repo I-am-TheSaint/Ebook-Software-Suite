@@ -1,0 +1,16 @@
+KoboChecker History
+-------------------
+
+(v1.1) Added a WEB button to execute the URL, and go to the Kobo store web page for the selected ebook entry. Added a DETAIL button to show details about the selected ebook, including a history of prices and URL etc. Every price change is now stored, along with the start (added to list) price. Some other mostly cosmetic changes & improvements, including a Price field, and some re-arranging. Addition of a 'Half' option, that switches between first and second half of the entries on the list being selected. The DESELECT button was changed to a 'None' option.
+
+(v1.2) Added a RELOAD button which reloads the Kobo ebooks list.
+
+(v1.3) Selection has been improved to include '10' and '20', with reselection of 'Half', '10' or '20' working as next. Controls are now disabled on LOAD, RELOAD, SELECT and CHECK. User is now displayed and gets checked on RELOAD to reflect any change of current User in KindEbook Wishlist. NOTE - CHECK button is disabled if the User is 'Paid', 'Bought' or ends in '(b)'. Last ebook entry checked is now shown on the 'Program Information' dialog window. Other improvements implemented.
+
+(v1.4) When an entry is checked, it is now recorded in a Log file, along with price. The Log file is accessed via the Program Information dialog. If the price hasn't changed, the 'Prior' column receives an 'x' after any price value in that column, or just centered.
+
+(v1.5) Kobo ebooks can now also be added manually, and are kept independent from KindEbook Wishlist entries. Program has been widened to accommodate the new ADD and REMOVE buttons, etc.
+
+(v1.6) Ebooks can now be designated as a VIP priced one, using that button. VIP is a 10% discount. The VIP state is shown in darker red (maroon) colored text, and clicking the VIP button toggles the state, and updates the price shown. The checked 'x' indicator is now restored on a RELOAD, but not after a program restart. Same for the indicator and color of an entry with a price change.
+
+(v1.7) Selecting 'none' now also deselects itself. Added two new selection options - 'Favs' and 'Rest'. 'Favs' represents saved 'Favorites' which are set by the new FAVORITES button for currently checked entries. The 'Rest' applies to any entries which don't contain an 'x' in the 'Prior' column. The 'Prior' column now gets an 'x' even when a price change has occurred, and it will be shown like the others, if a RELOAD occurs.
