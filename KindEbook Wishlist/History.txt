@@ -1,0 +1,598 @@
+KindEbook Wishlist is a continuation of KindEbook Price Query, but has a semi-auto mode which does some things differently, etc.
+
+History for KindEbook Wishlist
+==============================
+
+(v8.5) QUERY button now has a right-click 'Enable Kobo Query' option. This new option uses an external executable (KoboChecker.exe) to do the Kobo price queries, in place of the previous 'auto' option that additionally worked during a regular Kindle price query. NOTE - The code previously used to do Kobo price queries, no longer works, and its replacement takes much longer to get a price result, thus except for an individual query (via the 'Selected Entry Detail' window), the query processes have been separated to improve the experience of both. The new KoboChecker program also gives greater control over the Kobo price checking.
+
+(v8.4) QUERY button no longer changes to a STOP button, instead the button resizes and a STOP checkbox appears. Implemented a LOG file for ADD, REMOVE and QUERY, accessed via a LOG button on the program 'Settings' window.
+
+(v8.3) Significant speed increase for loading the List in sort mode, along with a small correction to code changes made in v8.2. Clicking on HIGH column now does nothing, while clicking the LAST column just jumps and selects last list entry (what HIGH previously did because there was no LAST column at the time that feature was added, and unknowingly it had been overlooked until now). Clicking on START column jumps to first entry on the list. I also added some timed dialogs to give better clarity about column sorting.
+
+(v8.2) Significant speed increase for loading the List in non sort mode.
+
+(v8.1) BUGFIX for retrieving Summary and Prices from file. Bugfix for Publication Date. Bugfix for Kobo Price comparison decimal issue.
+
+(v8.0) Implemented some Kobo fields on the Details window, along with manual and automatic (with QUERY) price checking, selection notification, etc. Kobo price is shown in Comments, and if less than previous during a QUERY, list text is blue (more is dark red, failure is purple or dark green, black is unchanged). Label click price toggling. Bugfix for price comparisons. Bugfix for Title extraction crash etc. Warning messages now advise of closure in 4 seconds, with a CANCEL option to keep open.
+
+(v7.9) BUGFIX for a specific type of blank entry, which includes changes to the FIXFILE process. A right-click 'Check to Remove' option has been added to the 'Selected Entry' menu item. NOTE - Still being plagued with an elusive corrupt first INI entry, which this bugfix can at least detect now and fix with some manual interaction.
+
+(v7.8) Added 'Price Query' support for when 'eTextbook' exists instead of 'Kindle'.
+
+(v7.7) The MOBI-ASIN can now be used in the Search field or copied when an entry selected. The 'Summary' and other details field on the Image GUI window has now been split in two, and the 'Summary' has an update button for saving if modified. Improved sizing for some images (JPG only, not DAT). CTRL can also be used to stop minimize with clipboard button.
+
+(v7.6) Some additional processes now have the Splash made optional, based on the similar Query setting. Exit on a Removal or Relocate is now also possible, via a prompt, rather than waiting for the list to be repopulated (sorted etc).
+
+(v7.5) Major Update. Future proofed the program for greater number of entries on the list.
+NOTE - Depending on the number of entries for a user, loading the list could take several seconds longer now. This is of course dependent on the power of your processor etc.
+
+(v7.0) Bugfix for Number column - belatedly realized it only showed numbers up to 999, so now it supports up to 9999 ebook entries. To accomodate the change, Number column has been widened and Author column narrowed. NOTE - Most users would not have been impacted, as it was probably only for their bought (b) user(s), who may like myself, have over a thousand bought ebooks, that this fix will be relevant. I also have users named after a category (i.e. Freebies(b) etc) where I keep other separate copies of ebooks I have purchased, and some of these were also impacted by the original 999 limit.
+
+(v6.9) Added a 'Go To' entry option, for when ADD results in existing for current user. If an entry is marked as paid (bought) in the database, its price will now never be queried. A 'Favorites' query or 'Favorite' status of an entry, can now be set as a 'Primary' or 'Secondary' favorite one. ISBN is now finally corrected to MOBI-ASIN as column header. NOTES - When a sort occurs on the MOBI-ASIN column, Secondary items come after Pre-Orders. The checkbox to indicate a Favorites query, now has three states, with the new third state being a filled in box or block, rather than a tick or cleared. Use that third state when just wanting to Query prices for any Secondary favorite items.
+
+(v6.8) Added an independent program to get the Exchange Rate, which currently uses the European Central Bank (NOTE - This makes it easier to update that part of the project). A RESET button has been added to the 'Settings' window, to clear the Exchange Rate query time, so it an be checked again immediately (if enabled), when an entry is clicked. If the current active user is a 'bought' one, then on program exit a query to change the user for the next program start, will now occur. NOTE - A bought user name ends in '(b)'.
+
+(v6.7) Increased the height of some Input boxes to accommodate long titles when wrapping.
+
+(v6.6) Added some User file size reductions, by creating 'Summaries' and 'Prices' folders, and populating them with text files, that are named by ebook ISBN, and contain those elements extracted & removed from each User file (i.e. B00K000001.txt). The current User will be prompted to allow these new changes to occur (which is highly recommended).
+
+(v6.5) Added a right-click menu SAVE option, for saving the URL for current or ALL users ebooks to an INI file. NOTE - The default save file 'URLs.ini' can be relocated for use with my new 'Booklist To HTML' program, to turn the MOBI-ASIN text HTML entry into a link.
+
+(v6.4) Finally remembered to add a third (Abort) option to ADD, when an ebook exists in the database for another user.
+
+(v6.3) Improved selection of recipient name, when doing COPY or MOVE, by using CTRL with CANCEL button, to cycle through available names. An item (ebook) can now be selected or de-selected for the COPY or MOVE LIST from the 'Selected Entry Detail' image window. A Bugfix for the related line color issue.
+
+(v6.2) BUGFIX for Exchange Rate, due to Google changing its web page again. This includes an option to continue using the previous Rate (if it exists), when a query has failed. In the case of using the previous, that only lasts the usual amount of time, before another query occurs (where you may get prompted to use previous again, if it fails again).
+
+(v6.1) Sped up the (second half of) batch move to another user process, if 'Slicker' is enabled. Username field has been widened a bit and Comments field lessened in width. Lots of error dialogs had an incorrect title, which has now been fixed. BUGFIX - Find 'Simple' text is now working correctly. ADD a new ebook has been modified slightly to help avoid unwanted clicks, when program window is not active. NOTE - I have experienced weird popups in Amazon browser tabs on occasion, if browsing during ADDING (I suspect this is due to the Click Item function for ListViews ... Mouse related).
+
+(v6.0)
+Added the missing SplashOff for the spaces in prices fix. When new users are created, they are no longer subject to the spaces in prices fix. Added a Fixit (Fixfile) shortcut, that can be used in an attempt to fix a corrupted user file. Pipe '|' characters if found, are now replaced with a dash in both Title and Author, when adding an ebook. Implemented a one time fix per user, to replace any existing pipes in Title or Author names.
+
+(v5.9)
+When the option to download Image Data has been set, you can now elect to not be queried about Saving a JPG file, if found when Image Data is not available. Accelerator Keys for COPY and MOVE changed again, to (Alt-C) & (Alt-M) plus (Alt-P) & (Alt-S) for comments, from (Shift-C), (Shift-M), (Shift-P), (Shift-S) respectively, to avoid occasional issue with SHIFT usage.
+
+(v5.8)
+Moved the right-click 'Save the Ebook list to file' option to a sub-menu entry, and added a 'Save to List for Excel' option there to, which is mostly just for my specific personal use, but others might find it useful (includes SHIFT+X accelerator key usage). NOTES - This new feature assists me, when I want to add new entries to my Booklist.xls file (in batch mode). It just helps to quickly create the basic entries, which I then flesh out later at my leisure, and helps avoid a lot of repetitive clicking. Used in conjunction with my related Excel macros.
+
+(v5.7)
+Added a 'Simple' option to the Search category dropdown, which justs finds the specified text in the chosen column (Title or Author), and selects that row. Search starts at the selected entry and will wrap around at need. The Clipboard button, can now be set in the program settings (or used with CTRL), to minimize the program window when clicked.
+
+(v5.6)
+Added a 'Both' option to the Search category dropdown, though it only works for selection display, plus copy to clipboard with the new clipboard button. Star button relocated to left of selection display (input) field, with the new clipboard button taking its prior location at right. NOTE - This now provides a quick easy way to copy Author &/or Title text for the selected entry, to the clipboard.
+
+(v5.5)
+Improved the Copy/Move input box dimensions, to more easily accomodate long titles. Mode for troubleshooting (me only) has been improved, to avoid me losing my sanity again (I'd forgotten it even existed). Replaced the (last version update) new CTRL option at program start, with a dialog prompt instead.
+
+(v5.4)
+Bugfix for '/gp/' and/or '/product/' in ebook URL. Holding down CTRL when the program starts will prevent the last user list from loading (if you are quick enough). Minor improvements to COPY and MOVE options. Accelerator Keys for COPY and MOVE now changed to (Shift-C) and (Shift-M) from (Ctrl-C) and (Ctrl-M) respectively, to avoid possibility of hotkey conflicts. Accelerator Keys added for Shared Comments (Shift-S) and Private Comments (Shift-P).
+
+(v5.3)
+Bugfix for 'Move To Another User' and 'Relocate All Bought Ebooks', when using right-click menu options with the new 'Slicker visuals for low powered PC' option enabled. The bug meant you ended up with a blank list (requiring a sort or load to fix). Added three more Accelerator Keys - Selected Entry (text) Detail (Ctrl-T), Set a SWEET price (Ctrl-S), Set a Warning (Ctrl-W).
+
+(v5.2)
+Have now made the improvements for last version, optional via a 'Settings' window option.
+
+(v5.1)
+Bugfix for Mouse cursor. Improved how list items are loaded, added, removed & sorted.
+
+(v5.0)
+Accelerator Keys added for Bought, Favorite, Copy, Move, Image & Text, Edit Title/Author.
+A right-click option 'Price -> Change' and Update window has been added.
+NOTES - Accelerator Keys are listed on the right of right-click option title, but are as follows (Ctrl-B) (Ctrl-F) (Ctrl-C) (Ctrl-M) (Ctrl-I) (Ctrl-E). If 'Ctrl' is held down when clicking the UPDATE button on the Price Change window, $0.00 is returned to all the input fields.
+
+(v4.9)
+Bugfix and improvements to 'Google Converter Address' for 'Exchange Rate'. This includes a new field on the 'Settings' window (near bottom left), and changes noted in newly extended 'Settings Information' dialog (i.e. label clicking). NOTE - This was due to recent changes in Google's Exchange Rate Converter address, which revealed a program bug. The Address has been updated in program defaults, and it is easier now to update on any future changes. The search column field has now been belatedly widened for previous version change.
+
+(v4.8)
+Added an extra column called 'Last' to display last (previous) price. Window now wider.
+Right-click 'Selected Entry -> Edit the Title or Author name' process now uses the values stored in 'Html Read Replacements' to show any corrections (fixes) that can be saved.
+Improvements to 'Html Read Replacements' process.
+
+(v4.7)
+Mouse cursor now changes during Query and Ebook list loading etc, to indicate when busy working. Extended the 'Please Wait' label to loading & sorting the Ebooks list, which also applies to any other process that re-populates or changes number of list entries (ebook removal, changing user, relocating bought, etc). Those are all dependent on the "Use a flashing 'Please Wait' ..." setting being set. NOTE - This feature was added to this and the previous version, so that having a 'Please Wait' splash displayed on top of all windows, for a lengthy period perhaps, could be avoided, if desired.
+
+(v4.6)
+Most controls get disabled now during a Query, plus the same occurs during an 'Exchange Rate Query'. Plus if 'Please Wait' splash is disabled for Query, then a splash is no longer shown during an 'Exchange Rate Query', with that text shown instead in both the 'Please Wait' and 'Timer' labels, which are temporarily unhidden for that purpose. The Timer label can also be reshown if hidden by the new feature, by clicking the FIND label.
+
+(v4.5)
+Added a REMOVE LIST option for removal of multiple entries at once. Bugfix for List not being cleared after a COPY LIST process, despite item lines having their color restored. Clear is now optional via a prompt, in case copying to more than one User.
+
+(v4.4)
+Added another right-click Query button option, to get total combined price of items placed on a list, using CTRL and left click (includes exchange rate conversion if available). Or if CTRL is held down while clicking the QUERY button, then the total price of ALL listed ebooks for the current user, will be returned. Changed CTRL to SHIFT when clicking the QUERY button, for the 'Single Item Query Report' options.
+
+(v4.3)
+Option added to Image Data GUI (Selected Entry Detail) window, for updating the URL.
+
+(v4.2)
+Bugfix for a program crash due to an error caused by price that started with a $ sign but was a chunk of text, that erroneously got saved/stored. Subsequent queries caused the crash. Price is now checked for digits only after stripping currency sign and period. When making a Price Query of a corrupted entry, in single item query mode, the program attempts to restore the original price from a backup or just restores to $0.00 or your currency equivalent.
+
+
+(v4.1)
+Improvement to ADD item option, to show CTRL message in Input Box label for next URL.
+Code corrections and improvements (including extensive check of declarations).
+Last recipient for a Copy or Move ebook, is now stored and recalled for default.
+Added a 'Copy List' and 'Move List' as other alternatives. To switch between the List choices, select or deselect the appropriate one available as a right-click option for the QUERY button.
+Changed the CTRL option for adding to or removing from the Query List etc, to now be LEFT CTRL.
+Bugfixes for sticky CTRL and SHIFT.
+NOTES - Discovered a bug, seemingly AutoIt related with Listview, where the use of RIGHT SHIFT or RIGHT CTRL while selecting a Listview entry, causes SHIFT or CTRL to stick on.
+
+(v4.0)
+Minor bugfix for 'Single Item Query' report.
+The no results splash has also been enabled for single item queries.
+Added options for a 'Query List'.
+NOTES - Along with 'Query ALL' or 'Query Single Item', you can now do a price query using a temporary list instead.  You can add/enable the Query List, by using right-click menu option or by holding down CTRL when selecting an ebook entry. View, Remove and Wipe menu options are also available, with SHIFT (held like CTRL) doing an alternate remove. Selecting 'Query ALL' will also clear/wipe the Query List.
+
+(v3.9)
+Added the option to show a report dialog for changes found in single item query.
+Made adjustments for improved timer updating.
+NOTE - The 'Single Item Query' report setting can be altered, via a dialog shown if clicking the Query button while SHIFT is held down. Clicking 'NO' will give temporary disablement of single query reporting while the program remains open (running).
+Timer updating issues exist, because AutoIt is not multi-threaded, hence the timer will not update during source query of an ebook web page or during the save source to file processes (roughly 10 and 7 seconds respectively, for me). Source query speed is very dependent on your connection speed and the Amazon servers.
+
+(v3.8)
+Clearing any asterisk or hash character indicator from the current price column for selected ebook, during a Query, has been improved with changes & new options.
+Query price error numbers now shown in final report.
+Bugfixes for 'Title' etc detection on ADD ebook, plus count in Query report.
+
+(v3.7)
+Where an ebook is a Pre-order and a Publication Date exists, that will now be the default in the Comments field.
+Added a right-click 'Selected Entry -> Clear query indicator' option, to clear any asterisk or hash character indicator from the current price column for selected ebook.
+
+(v3.6)
+Bugfix for changes in new Amazon pages, for detection of the JPG cover file URL, and for incorrect checking of multiple author names, with result of book description failure.
+Added a right-click 'Selected Entry -> Check line values' option.
+
+(v3.5)
+Bugfix for bad maths in split of a Query report (after 2nd loop). Initial Low Price of $0.00 is now updated when relevant (incorporates a fix for previous instances).
+
+(v3.4)
+Added some improvements.
+Clicking on column headers for the Ebook list has been modified a little, to include Columns 5 (Start) & 7 (High) as jump buttons, going to first and last ebook entries respectively, plus Column 6 (Low) sort now displays an explanation dialog.
+Program Information dialog has now been shrunk in height and expanded to 3 pages.
+Added a 'Missing.jpg' file, that is coded to display when a cover image is missing.
+NOTE - If you don't like the very basic white with red text, 'Missing.jpg' file, then a plain 'Black.jpg' file has been provided, which can be renamed for use instead.
+
+(v3.3)
+Bugfix for changes made by Amazon, that prevented price etc being determined on some ebooks.
+Added a FAVORITES toggle button on the Image Data viewer window.
+Discovered that code for removing Asterisks & Hashes from a previous Query (current session), had not been completed enough to remove previously colored lines and that visual indicator in the Current price column (unless a Sort occurred or User changed) ... now fixed during a full new Query (same session). In any case, that status did not persist after program was closed.
+Improved some dialogs (Start at first entry + Remove Asterisks queries).
+
+(v3.2)
+Re-arrangement of a few things, bugfixes, etc.
+Right-click context menu for the Ebook list, has had the position of some items changed.
+When doing a Query ALL, the button now displays a title indicative of whether 'Favorites', 'Non-Favorites' or neither is selected (also adapted for my personal EXCEL mode).
+A few minor bugfixes (variable declarartion & naming).
+Improvements to Image Data checking code (kind of a bugfix for if exists).
+A major bugfix, for when creating a first time username (affected new users only).
+An important bugfix for changes in new Amazon pages, that prevented the gleaning of Title and Author names, plus the detection of the JPG cover file URL.
+Another bugfix for the rare occasion the URL doesn't contain the normal split character after the ISBN type ID, but includes trailing text starting with a question mark.
+NOTES - Got side-tracked when redoing v3.1 (which needed doing due to a major bug from way back that I just discovered), so decided to create a v3.2 instead, which aside from bugfixes, also has some additional changes/improvements.
+The non-typical URL format, appears to be related to a search query result at Amazon.
+Amazon, every now and then, changes a keyword or modifies it slightly, so that is why elements are sometimes not gleaned correctly (or at all), and why this program will no doubt need updating every once in a while, to keep up with changes.
+Surprised no-one had reported the major bugfix issue. I guess the issue was possibly solved the second time you started the program as a new user (or more likely, created/added a user from within the program), except that no previous settings would have been recoverable. I discovered this bug, because I found a [] entry in the Settings.ini file, with some settings in it. I was weeding out update stuff at the time.
+I think the issued occurred, after I gave the program the ability to have multiple users. Instead of having just one Catalog.ini file, that file took the name of the current user (i.e. Jabbers.ini), so each user had their own. I adjusted the code to cater for that, and so prior users of the program would not have noticed anything or had an issue. However, somehow I missed doing the necessary for a first time user ... until now. It really was a Facepalm moment. I always wonder when I find these sorts of bugs, what may have distracted me at the time, that caused me to forget doing that section of code. I would have known at the time, that I needed to do it, but somehow it didn't happen. Perhaps it was due to one of those inopportune Bluescreens I was having for a while back then (which often resulted in a corrupt file and some loss of work).
+
+(v3.1)
+This is not really an update in the true sense, but may assist some users.
+Added a 'once only' query and information dialog for those not using 'automatic' mode.
+NOTES - In the earliest incarnation of this program, it only had an automatic mode of processing. At that point, the program was also named a little differently - KindEbook Price Query. One day it stopped working, and it looked like it would never work again. In an effort to get the program working again, invaluable as I had found it, I created a 'manual' mode. I then later managed to get a few of the elements working automatically, so created a 'semi-auto' mode. Around that time or just a bit before, this program was renamed to what it has been called ever since. The reasons for that have been listed elsewhere. By the time this program had reached v1.4, I had discovered it was possible to use an 'automatic' mode again, and so that was created as an option. I was a bit tentative at that point about making 'automatic' the default, so left it as 'manual'. Then I promptly forgot I had left it in that state, until it was brought to my attention recently. So this query dialog is both an apology and an amendment for that. It is clear, that even though I had mentioned the change in v1.4 comments and notes, it was not picked up by all.
+
+(v3.0)
+Minor update & Bugfixes. Publication date (if available and not just when a pre-order) is now always stored as a comment. In addition, if available, Publisher (and date) is always added to the start of the Summary (Book Description). Publisher can also be obtained using that new 'Get Missing' right-click option. Bugfix for Excel option (Splash). Bugfix for the cover JPG routine added in v2.9, where I discovered that a non existent JPG at Amazon, caused a huge (HTML) entry value to be created for the INI file 'image' key. Per request from willichan, I added support for adding Kindle ebooks with something like 'http://smile.amazon.com'.
+
+(v2.9)
+Minor bugfix for Ebook Title failure, and thus Author Name(s) failure. This was due solely to a case change in the web page for 'productTitle', which is now 'ProductTitle', so purely the first character being uppercase now.
+Added a routine to detect a likely cover JPG, when obtaining the 'Image Data' fails, that prompts to download that JPG if found.
+NOTE - My apologies for taking so long to fix these issues, though no-one complained. I'd just been using the Rename facility for Title and Author, and so manually adding them, plus using the 'Get Missing -> Image via URL' option for the ebook cover.
+
+(v2.8)
+Program now remembers last window position.
+Label for Exchange currency codes is no longer disabled, and can now also be clicked to return the exchange rate conversion value for current item, when that option is not set.
+NOTE - This requires an Internet connection and the option status does not change. This allows for quick checking of a single item, without changing current program settings.
+
+(v2.7)
+Major Bugfix for 'Last Control ID' and other right-click context menu related elements.
+Author & Title text has been added to several input boxes.
+
+(v2.6)
+Clicking the FIND label will show or hide the PLEASE WAIT label (shown during a Query).
+It also does a manual reset for the right-click context menu settings.
+Added a (hidden/disabled) personal (right-click) Query button option, for me to use the program with my Excel Booklist and macros (won't work for others unless enabled, plus modified significantly to suit. WARNING - Don't attempt this unless you understand it).
+The number of changed prices for a Query Report, is now displayed in the dialog title.
+
+(v2.5)
+BUGFIX for v2.4 where some menu settings were being declared before menu was created.
+The QUERY button now displays 'QUERY ALL' when a 'Query All' is selected.
+Added a 'Sorted' checkbox, so that a User can specify their default sort arrangement or recall the last one.
+If using the WAIT option between each entry query, the code has now been improved to not only have more variability (now includes a single decimal point, for part of a second), but to also (hopefully) give a smoother Time display and a quicker response to indicate a STOP has been received. However, there is still the inevitable lag involving server responses, because of no multi-threading capability.
+
+(v2.4)
+A major reworking of right-click List entry selection. This means, you should be able to reliably make a List entry active, with a right-click, as well as the normal left-click.
+NOTES - This is a great improvement, but not 100% perfect, though hopefully perfect enough to avoid errors (time will tell). What stops it being perfect, is when you right-click subsequent List entries without using a left-click between. This is evidenced by the FIND field for Author or Title not being updated immediately, and occurs because my method does not intercept the right-click menu process, only recreates the right-click menu at need. This should not be a problem, because any menu entry that is selected, checks for the currently highlighted List entry, causing an update to the field and (more importantly) program knowledge of selected item. So in short, a visual delay only ... in essence. Normal usage of the program (left then right click) should not be impacted in any case. The first right-click after a left-click, should always now update the field etc.
+
+(v2.3)
+Added a Tooltip for Ebook List to show ISBN, Title & Author (updated when an entry is selected). The tooltip is also updated after a single item Query, displaying 'Queried' plus a trailing date and time.
+If the Ping process fails, but GetIP doesn't, and the Ping Error is 'Other Errors', then you can optionally choose to continue with connecting (or try to). I added this option, because of a seeming issue while using a VPN, where www.google.com refused to return a successful ping.
+To change the 'Server Address' to a default, either clear the field or type in 'autoit', then close the 'Settings' window. Cleared returns 'www.google.com' and 'autoit' returns 'www.autoitscript.com'.
+'Finished!' is now briefly displayed in the green 'Please Wait!' label, after Querying a single ebook entry.
+
+(v2.2)
+Minor bugfix for Users' temp file, so that changes are cleared for all users on program exit.
+Bugfix for wrongly named key in 'Compare to another user'.
+Bugfix for Store Search, when editing or replacing criteria (sorry about that).
+Improved the restoration of line color when changing between users after a Query.
+'Exchange Rate Query' now shown on the PLEASE WAIT splash, after a 3 second prompt to abort the query, with the added option to about any further queries that session.
+The 'Exchange Rate' is now re-queried from Google if more than 59 minutes has elapsed since last query, and the program is still running in the same session. That default can be modified to a user preference, by modifying the minutes value in the 'Settings.ini' file, under the 'recheck' key in the '[Conversion]' section (i.e. recheck=59).
+Added a 'Last' price record and right-click option 'Price -> Last' to recall it. This may remain blank until a price change occurs for that ebook entry (except for first time installers or new ebook additions, as it is prefilled to the 'Start' price).
+
+(v2.1)
+'Save the List to file' can now optionally save to a TXT file, instead of CSV. It is a simpler list, with just Ebook Title followed by Author Name.
+An 'Exempt' option has been added per user for the 'Exchange Rate' when enabled.
+A bugfix for URL format, when not using the main (American) Amazon store. I had foolishly included a trailing backslash after '.com', which would have impacted those from other countries (though I've had no complaints ... perhaps they are doing what I am, and are not using their local Amazon store ... if they even have one).
+Various other improvements, including the option to just add basic details from another user, when adding an already existing ebook, that you weren't aware of perhaps (though I'm using that feature, so I can add the same ebook from another Amazon site, with a different URL, but same ISBN type identity), plus a Splash added for initial 'Exchange Rate' process.
+A comparison option was added, with an entry 'SET current as Compare participant' on the right-click menu option for USERS. This is really only useful, if you are wanting to compare prices from two different (country based) Amazon Kindle stores for the same ebooks. When the second participant is added, you get prompted to continue with the Compare process and an eventual text file list of results.
+Another Compare price option, for just the selected ebook title has been added to the'Selected Entry' menu, named 'Compare to another user'. That user must have been set on the Settings window. A 'Save' option there will also enable recording of the other user price during a purchase. It is up to you to ensure that price is up-to-date.
+Cosmetic changes- SEARCH label renamed to FIND, and other related inputs resized.
+A Search Store option was added, with the specific Amazon address taken from an input field on the Settings window. An InputBox with currently selected Ebook Title and Author Name is  displayed, but those values can be edited or replaced, prior to commencing the Search. Remove the pipe '|' separator between Title and Author, to do a non-author specified Title or Author search.
+I've now added some other currencies (country codes). Those few who downloaded v2.0 may want to clear the 'Settings.ini' entry (Conversion -> currencies) so that it can be updated. The newly added 'CODES' button will do this easily while preserving any older differences, and also allows easy addition of other country codes.
+Country codes can be found at - https://en.wikipedia.org/wiki/ISO_4217
+Bugfix for a missing zero and required two decimal places when an integer, for exchange rate converted price.
+
+(v2.0)
+Relocated the SAVE LIST button to a right-click list entry - 'Save the List to file'.
+The 'Restore after last Query' right-click list entry has been relocated to 'Restore previous prices' under the 'Query' right-click menu.
+The ON TOP button has taken SAVE LIST button location, and the ADD button has been halved in height.
+A black 'from -> to' label and an 'exchange rate currency conversion price' input field have been added on main program window, and options to enable them (etc) have been provided on the 'Settings' window. Clicking that black label, will show the currently set (if any) exchange rate in a dialog. If enabled, the exchange rate and price is also recorded when an ebook is designated as bought.
+Colors for price changes, can now be changed by clicking the colored labels on the 'Settings' window, which will show a color picker window.
+An extra color and 'Sweet' price have been added (white by default), so that an entry line will change to that color if the changed price is at or below that value.
+To set a 'Sweet' price, select an ebook entry and then use the right-click list entry 'Set a SWEET price', found under the 'Selected Entry' menu options.
+Other minor improvements added or changes made.
+A secret setting was added to show the number of price changes per ebook entry. This is not set (by default), but can be manually set by editing the 'Settings.ini' file if you wish, under the [Total Changes] section ... just change 'get=4' to 'get=1'. When enabled, it displays the count of changes after the displayed number of ebook entries in the list (List Of Kindle Ebooks), each time you select an ebook entry.
+NOTES - You can see this as the first anniversary edition version of the program, if you like (though strictly speaking, we are a couple of weeks late).
+If the 'exchange rate currency conversion price' cannot be determined (i.e. no Internet connection) then the 'Current' price (but ending in @), will be shown in the input field instead.
+The secret setting was added so I could check on total price changes, while determining whether I needed to add an archiving ability, because that number might grow too large. As it turns out, it appears the INI entry can support well over a thousand changes, which by my reckoning will involve several years. So any impacting issue seems unlikely. This is price changes for an ebook entry that has been on the list, for something like that length of time. I currently have an ebook entry on my list, that has been there since the 22nd January 2015, and it has had 83 price changes. That is the highest number of changes per ebook on my list. So going by that average for a year, it is likely to take over 10 years to get up around a thousand price changes for that particular ebook. In all likelihood, prices changes for an ebook will probably lessen over the years. The number of price changes is governed by many factors, not least of which, is how many times you use the program to check. But I will of course review the situation in an ongoing manner. I imagine it would be pretty impressive indeed, if my program lasts long enough to encounter issues in that regard.
+
+(v1.9)
+Added a check process to bring the program window to the fore, if minimized or non-active, if executed again while running.
+Added a WARNING comment option for each title, via right-click, that displays a message if an entry has a warning, when clicked/selected.
+Added a SKIP ability via right-click for an entry during any Query ALL, with each entry row with that applied, being shown as dark pink.
+Improvements (bugfix) to the application of color for a row.
+An Alert option added to Settings window, for determining large price change amount, and displaying colors for rows according to that during a Query (YELLOW = minor change, GREEN = large reduction, ORANGE = large increase). On a Re-Sort after a Query, all changes will be shown as Blue rows. Same applies after changing users and returning to that user. Previously (v1.8) all price changes were indicated by bright green.
+Search has been expanded to include Authors, and an input field added to show selected entry, where text displayed matches the column for Search (author or title).
+
+(v1.8)
+Search option added for Titles, which creates a 'Search' user. Pre-Orders can now be included with Query of Favorites. Alternate list lines are now two different colors (pale green & pale pink). An entry line where a price has changed during a Query, is now colored bright green or red if the price was not available. A 'Changed' user can now be created, to list just those ebooks where the price changed (or failed) in a Query. Added a RENAME User option.
+
+(v1.7)
+Cosmetic changes to presentation of ebook detail, to reduce number of lines.
+Fixed an overlooked reset of the Flash label to 'Please Wait!', which was only noticed on repeat queries while the program was still running.
+Report Query now uses a split method, rather than just truncating the report at specified number of lines (default is 20 lines). This means any larger reports will get shown in a repeated dialog until all lines have been shown.
+Looked into replacing some code with a Regex, but still lack a little understanding, so holding off until I gain enlightenment. However, thanks to the example of Regex provided by AutoIt Developer guinness, I was reminded of the benefits of using @extended, so have improved things a bit with that for now.
+
+(v1.6) Various improvements & new features.
+WARNING - While this update does create a backup during the FIX process (requiring manual removal), unless you are sure of a previously created backup for each user, I would recommend creating your own manually. Each user file is only fixed, the first time it is selected by a user.
+Start and Stop item can now be one and the same and work correctly.
+Start and Stop item once set, can now have ISBN shown in a dialog.
+A once off FIX (for each user as selected) for spaces in any price value.
+Errors for failed read of a Price or Web page missing, are now continued on from after 6 seconds.
+Added another Get Missing option, to retrieve an image via it's url, where an input is presented to user for pasting the URL into, but automated if on the clipboard.
+NOTES - Spaces in prices may have occurred when the Manual Query option was first introduced. It was dependent on the copy & paste diligence of the user, but later catered for with a bugfix. The FIX probably won't fix anything for most users, but I've enabled it to be sure, just for completeness.
+I guess the improvement to Start and Stop item, can be seen as a bugfix, though in reality using Query for one item would be much smarter than fiddling around with Start and End points for a Query ALL, and then doing only one item.
+With the failed errors, each occurence is indicated by a hash character at the end of the Current price anyway, but I am considering having the failures listed after a Query ALL has finished, so this may be in a later version of the program. If you want to adjust the timeout for the Error dialogs, see the 'Error Dialog' pause key in the 'Settings.ini' file and change the value.
+Adding an image via it's URL is a right-click 'Get Missing' option, that downloads the image to the correct folder and filename for the currently selected ebook entry. This really only needs to be used if getting the Image Data failed or doesn't work correctly. The process deletes any existing DAT or JPG file for the selected ebook entry, first.
+
+(v1.5) Bugfixes and extra features.
+Bugfixes for adding an ebook, where Author name was sometimes being doubled and the ebook mistakenly being recognized as a Pre-Order (due to a missing leading zero in some date elements).
+A random delay option between queries has been implemented.
+Go to the Wikipedia page for Author or Title of currently selected ebook has been added.
+Mode warning message has been adjusted for when selecting 'automatic' mode.
+NOTES - To activate the Random option, you may first need to de-select the Delay checkbox and then re-select it. Going to the correct Wikipedia page for Author or Ebook Title, will always be problematic. This is because of a few things, not least of all, how Wikipedia choose to list their pages and how Amazon list their ebook titles. There will no doubt be issues with illegal characters and other textual things. To that end, the concocted URL is displayed in an Input Box, so that the user who has experience and or knowledge, can make a judicous edit before clicking OK.
+
+(v1.4) Some automation restored etc.
+An option added to remove blank lines in the Summary when adding an ebook.
+Adding an ebook in 'automatic' mode, may now work for some people (Pre-Order detection is not yet fully tested, and dealing with multiple authors/editors remains untested, plus Image Data extraction may not be perfect).
+Likewise with a Query in 'automatic' mode, it may now work for some people, hopefully all.
+The divisor for Html Read is now 6 instead of 4, and is a value in the 'Settings.ini' file, which can now be manually adjusted. Basically a sixth of the read is chopped from both start and end.
+A 'prompt' mode has been added, along with a 'Mode Selector Prompt' window which will appear at the start of a Query, if 'prompt' mode is selected, allowing on-the-fly temporary mode selection.
+The program window 'On Top' setting is now de-selected during ADDing of an Ebook. This setting can be changed if desired, by manually changing the value in the 'Settings.ini' file (i.e. to '4').
+NOTES - Hopefully the program is now restored to its former glory of fully automatic mode, but with useful additions and alternatives now included. All apart from the elements mentioned above, which can however be set manually anyway. Prior to automatic mode troubles, I had found it best to use the program, with 'On Top' de-selected most of the time. However, it became necessary to manipulate this setting in the other Query modes. Having to remember to de-select it before adding an ebook, became annoying for me, so I added the automatic toggle ability for that process.
+Removing blank lines, is a visual thing mostly, but also helps with very long summaries.
+Bothering with character removals from the 'Html Read', is very debatable on its benefit (speed & memory), and I should probably get rid of it altogether. However, instead of half the read being removed (2 quarters - start and end), it is now removing a third (2 sixths - start and end). To permanently disable any removal, just set the divisor below '3' in the 'Settings.ini' file setting.
+
+(v1.3) More minor improvements.
+Can't believe I hadn't given the Settings or Image Data windows a parent of the main GUI, which I have now. I guess it hadn't bothered me enough until recently.
+An extra delay option added for tab loading, for automatically increasing delay after a copy failure for price and or title match. If enabled, this delay will increase by the extra delay value every time there is a failure, but is reset for every Query start. This can help where you may have a slower connection than normal, and don't wish to adjust regular settings, along with stopping the Query ALL to do so.
+
+(v1.2) A few minor improvements.
+Previous current price is displayed on splash screen while price checking, and ebook title is slightly longer with splash being a little wider to accomodate.
+First Query item now has an additional delay of 10 seconds when Tab Load is applicable (but manual editing of that value in the Settings.ini is available).
+Splash is now updated to show 'Stopping!' when PAUSE key is held down long enough.
+A facility and right-click Query menu option for 'Last Time Taken' has been added.
+
+(v1.1) A few bugfixes and improvements.
+I had renamed the variable for the 'Failed.txt' file, and overlooked the instance where it gets wiped at program start, now fixed.
+Ebook title (first 20 characters) is now also included on the splash screen while price checking.
+Decided to add timeouts to some dialogs, so that you can start and forget and deal with those items that failed afterwards.
+If Price &/or Title Match fail, then a Try Again option has been added, and occurs automatically (once) after 50 seconds, after which a Continue on to the next ebook is the 50 second default.
+An option to activate any Amazon Browser Tab has been added, which can be enabled to help overcome web page text copying, but increases the chances of wrong browser tab if others are open, so it is not enabled by default.
+
+(v1.0) Leading and trailing whitespace now removed from every element when manually ADDing an ebook.
+A 'semi-auto' mode has been added for Query.
+NOTES - The 'semi-auto' mode relies on being able to select all text from the currently active web page. It uses Ctrl+A and Ctrl+C to do this, so you should not be doing anything else on your PC during a Query. It could also be helpful to avoid errors, if you have no other browser tabs open.
+The program also relies on two delays when trying to obtain Kindle Price. The first delay, should only occur once, at the start of every Query ALL and single queries, and is a delay for browser start up. To avoid this delay, if your browser is already running, you can specify the browser executable, when you select the 'semi-auto' mode. To change that value once set, currently requires manual editing of the 'Settings.ini' file. The second delay is unavoidable, but in both instances, you can adjust the number of seconds, from '0' to '999'. This second delay, is the wait while your ebook page loads into a browser tab/window, and occurs for every query, except when the 'Browser Start Up' delay is used.
+If all the timings are correct, and the web page text has the price, and it can be obtained, then all should be seamless. Multiple prices means the 'manual' mode input is displayed for use.
+Issues that may occur, aside from incorrect delays and multiple prices, are dealt with by a report to the user.
+Getting the wrong price for the ebook, could occur if you have other web pages open.
+That last can occur regularly, if tabs for previous queries remain open, and delay is insufficient or the 'Close Browser Tab' option is not selected.
+In an effort to prevent a wrong price, the program does attempt to do a title name comparison, but is very much subject to Amazon variables in page layout, etc. This setting can be disabled in the "Settings.ini' file, by an edit of the 'Semi Auto Title Compare' -> 'check=1' setting, which can be set to 'check=4'. This is not documented elsewhere (or given a control to click), as there is inherent risk in doing this, but if you are sure that all else is working well (delays, etc), you could turn off this check to get around Amazon ebook title issues.
+All ebook price queries that fail, are saved to a 'Failed.txt' file, which is wiped on program start, but is shown after the Query has finished, and can be viewed again via a right-click 'Query' menu option.
+In addition to that, a file called 'Webcopy.txt' is created/overwritten in the program folder, for every Query where web page text has been successfully copied. A perusal of that file might indicate where a problem lies. Current required keywords for price are 'Kindle Price:' or 'Pre-order Price:'.
+To stop or quit a Query ALL, you are recommended to use the PAUSE key on your keyboard, only.
+
+
+History for KindEbook Price Query
+=================================
+(v1.1) Warning for URL (with advice), as previously mentioned has been added.
+Sorting on four columns added (ISBN column acts as Author/Editor sort).
+Icon added for EXE.
+Inclusion of pound and facility for other currency via INI entry (decimal based only).
+Thanks added.
+NOTES - Some of the Settings.ini entries are for, it is mostly just testing.
+However, the 'increase' key in the 'Html Read' section can be assigned a number of characters to restore what is normally jettisoned to speed things up. Use it if there is a related reading failure. Normally, the first third and last third portions of text are removed from the source read, as they are irrelevant. This does not apply for a query.
+The extra files created, are for troubleshooting any source reads, either by me or you (if you are happy to modify the au3 file and recompile).
+
+(v1.2)
+[1] Bugfix for Query where $ was concerned (Pound and other currencies not affected). This crept in when I added support for other currencies, and was a silly oversight (logic was sleeping).
+[2] Stopped the current click effect after a Query ALL. Now using a combination of select and scroll, except for last entry.
+[3] A dialog is displayed after a Query ALL, showing titles where prices have changed (only if any have changed). Includes an option to copy results to clipboard.
+[4] Added another sort (using the Low column header), so that those titles where the price is lower, are placed first on the list, and those higher placed last. The rest is sorted lowest to highest, based on the Current price values.
+[5] Check added to prevent adding a book again, that already exists in the database. User notified and any addition rejected.
+[6] Relaxed the rule governing the type of URL, which can be reapplied by a setting in the INI file if needed. URL's as seen at Post #4 should now hopefully, also work ... though I've barely tested this. A split is now performed on "/dp/" to get the ISBN. It appears from my limited testing that the pages may be identical to the type I was recommending ... hopefully so anyway, which will make life easier for users, when adding after doing a search or any other browsing that results in that type of URL.
+[7] Icon edited to give a 16 and 48 pixel element. Was an old icon I created years ago, that was only 32 x 32.
+NOTES - Part of the reason that bug got missed, is because I am creating on one PC (no internet connection) and testing on another (with Internet, but no AutoIt install). Means I have to be twice as careful with the logic.
+
+(v1.3) URL column changed to Author, and sort for author changed from ISBN column to Author column.
+Column widths improved to accomodate changes, and Author (Editor) removed from Comment field display.
+Comment field widened, after relocating ON TOP button, and resizing that and the Remove button.
+Price difference on Report dialog, now contains leading zeroes if change is under ten cents (etc).
+Right-click menu added to List, for Selected Entry Detail, with copy to clipboard option (NOTE - 
+normally right-clicking an entry does not make it the selected entry, but in this instance I have
+made it so - makes for less clicking when checking multiple entries).
+Query ALL process improved by List scrolling to show first entries at start (when not visible).
+Some in-program information updated.
+
+(v1.4) More items added to right-click context menu entry.
+[1] Go to web page - executes the URL in default browser.
+[2] Copy URL to clipboard.
+[3] Selected Entry Detail (text only) - renamed slightly and now includes Summary on the dialog.
+[4] Selected Entry Detail (image + text) - GUI version with embedded IE and Image data with text.
+[5] Add a comment - a user comment can now be added for each ebook.
+[6] Get missing summary - Summary is now part of ADD, but for earlier added ebooks use this to update.
+[7] Get missing image data - obtaining image data is now part of ADD, but for previous ebooks without it, use this option to update.
+NOTES - For all ebooks added in this version, obtaining image data is attempted. It could fail, as I have done very little testing so far. However, it is important to note, that for every successful scan, a DAT file is created using the ISBN as filename and stored in a program sub-folder called Image Data. If you don't want this, just edit the INI file, and set the 'store=1' value to 4 etc. A quick way to later re-enable this option, is to simply use the 'Get missing image data' menu entry.
+Roughly about 25kb's is used per ebook for the DAT file, from which an image (book cover) can be seen in a browser or the program GUI (once standard HTML tags are added).
+The web (html) page text read, now uses a reduction factor of 4 (quarter) not 3 (third), so that Book Detail (Summary) can be read. Reduction is at start and end of a full read.
+As an aid to issues with the HTML read, when adding an ebook via URL, the 'reduction' text value (number of characters) is now written to the 'Settings.ini' file.
+Adding an ebook does not fail, when only Summary or Image Data fail to be gleaned.
+Any user created comment is added to the beginning of Date information and shown in the Comments field. It can also be seen in both Selected Entry Detail options.
+
+INTERESTING - The Image Data feature came about, after I discovered that the book cover image existed, when it was just a text only html file (no companion _files folder or image file). I realized it must be a text version (JavaScript, etc) of the original image. I wondered how I could utilize that, to give a nifty addition to my program. That lead me to the browser, which lead me to embedding an instance of IE.
+
+HELPFUL - In the end with this version, I had to create some INI entries that can be manually added to, as I found myself going back and forwards between my net PC and my programming one. I found a difference between the Firefox browsers on each, when it came to html tags and odd characters. These tags and characters caused issues when it came to get a Summary, and I keep coming across new ones (mostly odd characters), so hence the INI entries for each. Just add to them as you need to, by paying close attention to how the existing ones are.
+
+Basically, a pipe character separates the tags and the characters. They are further split by the colon character ':', into tags and characters on left and replacement (if any) on right.
+
+Here's some other recent ones I discovered, that you can add to the INI entry for characters (Html Replace section).
+|&#x2019;:'|&#x2013;:-|&#xea;:e|&#x2026;:...|&#x2018;:'
+
+P.S. Sometimes you have to laugh at yourself. After the last version, except for one thing I thought would be great, I had no real intention to do much to this program for a while, and in fact, didn't think there were many more good features to add. As usual, I was wrong. I even learnt about embedding IE and some differences with newer html tags, etc.
+
+(v1.5) Fix added for unexpected </DIV> tag, when getting Summary.
+A few buttons and a permanent Comments field (which can be updated there) added to Image Data GUI.
+The Buttons replicate some of the List right-click context menu options.
+Two further Dates added - Changed and Previous.
+Added all currently known odd character replacements to code.
+You won't get these additions, unless it is a first time install or you clear that setting (characters=).
+Don't forget to comment out that setting instead, for any additions you may have made to it.
+Then add any missing ones from your additions, onto the end of the updated program values.
+Comments now supports multiline (indicated by pipes or spaces in certain views).
+
+P.S. Never say never when it comes to Program updates.
+With programming, you are on a journey, and your mind's eye keeps seeing things.
+Chiefly, I added the extra buttons in this version, because I hate not having a large EXIT button where I expect it.
+When deciding what to fill the rest of the space on left with, a permanent Comments field with UPDATE button seemed like a good idea, with the other two buttons obvious choices.
+I added the two extra dates, because that was an issue I'd been cogitating over.
+
+(v1.6) Rewrote the code for making a right-clicked list entry the selected entry. Hot item was giving mixed and odd results.
+Added two more List right-click context menu items - "View price results" and "Bought this ebook".
+ISBN column will display the leading text of "Bought - " for any ebooks designated as such.
+ISBN column sorts by title alphabetically, placing all designated "Bought" ebooks first.
+"View price results" option displays any changes to price for selected ebook, comparing the four values (Start, Low, High, Current).
+"Bought this ebook" option prompts with an input box, of current price and date, which can be edited and/or added or set blank and removed.
+When this program version (and any later updates to an earlier installed version) runs for the first time, prices for each ebook are compared, and where appropriate a changes entry created.
+From now on, all price changes are recorded during a query, and added to that entry, on a line plus line basis.
+If you want the Time also recorded for these changes, then you will need to have manually set an INI entry previously (time=1) in the "Now Date Format" section.
+Those changes can be seen at the end of the Comments input, or on both the "Selected Entry Detail" reports (Dialog or GUI).
+If you don't wish to have them display on the "Selected Entry Detail (text only)" dialog, then you can set an INI value (changes=4) in the "Selected Entry Detail" section.
+You may wish to do that last, if there ends up being too many.
+You can also prevent all these extra price changes from being recorded, by setting (record=4) in the "All Price Changes" section.
+In the "Selected Entry Detail (image + text)" GUI, these changes are displayed in the lower portion of the Comments field, and ignored during a user update.
+Swapped out the scroll command (used during a Query to make sure selected Listview entry is always visible), when I discovered the ensure visible command.
+
+NOTE - Before running this version for the first time, you should read the above information, and maybe even make a backup of the "Catalog.ini" file.
+Personally, I recommend you don't bother, but you may wish to edit the aforementioned "time" or "record" values in the "Settings.ini" file.
+Take note though, that they are not created until first run (afterward you could copy to the backup and then edit and reinstate).
+Or you could work around this by manually creating either of them yourself, before first run.
+Creating the (record=4) value before first run, will bypass the updating mentioned above.
+Or you could just manually change the setting afterward, and delete all the (changes=) values that resulted.
+Once again, I don't recommend you do any of these options, but I won't force my preferences on you.
+
+(v1.7) Added little fix to Summary (Book Description) read, for too many blank lines occasionally.
+Two more List context menu items added - "Price History" and "SETTINGS".
+'Price History' means you can now disable it showing in "Selected Entry Detail" dialog, if you wish.
+'SETTINGS' is a window to access all settings that previously required manual editing of INI file.
+This quick easy 'Settings' access, also has options to restore defaults.
+'Remove' and 'ON TOP' buttons on main window, have now swapped positions.
+Main 'Information' dialog updated for a missing element from last version.
+
+NOTE - Having discovered too many blank lines in one of my ebook summaries, I decided to add a fix.
+Not wanting to make an update just for that, I racked my brain for some other elements worthy of coding
+for the update, and came up with the other improvements and features. While I haven't made a change
+to the default setting, I will never-the-less now set 'Show ALL price changes ...' to de-selected,
+for myself, as I see it becoming a size issue for some ebooks with large summaries. You shoud probably
+do the same. If you haven't made any user additions for VALUE (characters), and you haven't done what
+was suggested last version, and are not installing for the first time, then you will benefit from
+doing an UPDATE on the SETTINGS window for that option (just click UPDATE, with no VALUE selected).
+
+(v1.8) Added an option to store and view up to the last five Query results.
+Both the 'Settings.ini' and 'Catalog.ini' files can be viewed via a button on the SETTINGS window.
+The SAVE LIST button, can now save a comma delimited csv file of current list state, or using either CTRL or SHIFT keys, the 'Catalog.ini' or last saved file.
+'Price History' and 'View price results' menu items have swapped positions, with 'Query Results' menu item added.
+
+(v1.9) Added an option to keep the URL InputBox presenting until Cancel clicked.
+Optional splash screen for no price changes result from a Query (mouse move closes).
+Added a STOP facility for Query.
+The URL InputBox now exits from a cancel, without the unnecessary URL message.
+Improved some code.
+
+(v2.0) Added an option to make selected ebooks a favorite, with an entry in the ISBN column and sortable.
+Option to store and view up to the last five Query results, has now been changed to user specified, from 0 to 99 slots.
+The STOP facility for Query, can now be made optional.
+Checkbox added, to allow a Query just for favorites.
+
+(v2.1) Added a Multi User ability, so individual users of same PC can have their own list.
+Fixed a visual issue where the wrong entry appeared to be being processed during a Query.
+This was especially evident when just querying favorites. It was visual only though.
+Comments are now listed in a dropdown combo (instead of input), with each element having its own line.
+SETTINGS button added, to replace that item on the right-click context menu, which has now become an ADD another USER or REMOVE one, option.
+Some buttons etc resized to accomodate changes.
+
+(v2.2) Added a right-click option to relocate Bought ebooks, to what is essentially another username.
+Bugfix for missing Else statement, so CANCEL works with recursive ADD ebook URL.
+Added missing rename entry process for SAVED file location, so each user has their own.
+
+(v2.3) Added a Backup facility for all user files, that happens at program start or when the option is selected. Up to Five backups are cycled per user, and are only created if modified date/time has changed. Backups are optional, and are stored in a program folder called 'Backups'. When all five slots are filled, next backup will cause second oldest backup to overwrite oldest backup and so on.
+Added missing check for Bought username, so that Relocating Bought ebooks is disabled when that user is currently selected.
+NOTE - I have noticed, that when you delete an ebook entry on the list, you can have issues selecting later items on the list. A simple sort will fix this. This appears to be a Listview bug, not one of my own. I've toyed with the idea of forcing a mandatory sort (reload) after each removal, but that can be annoying, as you lose your current position (which I could code for, so it is on the consideration list for updates). This issue may not occur in later versions of AutoIt.
+
+(v2.4) Added a Fix / Improvement for Price Changes (Report & Records).
+Added an optional automatic resort after an ebook entry is Removed / Deleted.
+This resort, is also based on the currently selected sort arrangement, selecting the previous entry (if any) after resort has completed.
+Sort state (column number) is reset to zero index on User change.
+
+(v2.5) Added an option to have an embedded flashing 'Please Wait!' during a Query, instead of the floating Splash Screen version. Rate of flashing is adjustable.
+Bracketed 'Lowest', 'Highest' and 'Last' now added to end of Price Change record, to make it obvious what value was compared. This stops the guessing or wondering, that even I was apt to do.
+Added a separate right-click entry for 'Current Difference' only. Probably not needed, but easier.
+NOTE - Not an exciting update, but pleasing for those who may have been irritated by the ever present (on top) 'Please Wait!' splash screen during a Query.
+
+(v2.6) Added right click options to specify which entry to Start the Query ALL at, and/or to End at. A total count of all ebook entries is now displayed. An open Program Folder button added to Settings window. The ebook Image Data file is now deleted when that entry is removed, unless it is shared by another user. Price History has now been given a display check limit of 20 items, which can be manually edited in the 'Settings.ini' file. In the first instance, only items where the price change was less than 10 cents, are excluded. This is raised to less than a dollar, if item count is still above 20. The flashing 'Please Wait' label has been moved slightly to the right.
+NOTE - The full report (no exclusions) is always exported to the clipboard. At the moment, I am hoping that the two exclusion ranges will be enough, but I will be keeping an eye on the situation with a mind to a further type of exclusion if necessary, in a future update.
+
+(v2.7) Re-arranged Right-Click context menu entries for List, with some entries now on a sub menu. Added right click options for 'Pre-Order' and 'Query Non-Favorites', plus Copy (or Move) to another user, plus Editing inputs for Title and Author. Image Data existence checked for when adding same ebook for another user, to avoid unnecessary updating. Added ability to attempt detection of a Pre-Order when adding a URL, with Publication Date saved to Comments and an ISBN column indicator.
+NOTE - Entries moved to a sub menu, are those that don't get used repeatedly in a session. Pre-Order will replace Favorite, but not Bought items. Sorting the ISBN (column 2) will have Pre-Orders listed after Favorites at top. A Query for Non-Favorites can happen instantly or via a prompt, when using (setting) the right-click menu option, or via the regular QUERY button. It also works in conjunction with the Start and End settings. Option added to Settings window, to toggle 'Instant' setting. The Query for Non-Favorites setting stays active, until manually unset by one of two methods or program close. Before selecting Copy or Move to another user, you can select that user, and use a right-click menu option to set them as recipient, otherwise first time around you will need to type their name in the Input box that appears during the Copy or Move process. Right-click option for Editing ebook Title or Author name, will present two Input boxes (one after the other) to modify one or both elements. When adding an ebook via URL, the program attempts to detect whether it is a Pre-Order release, by checking the Publication Date field, and comparing that date to current. If set in the future, then it is determined a Pre-Order and the date is added as a comment, plus the 'Pre-Order' text is added to the ISBN in the ISBN column.
+
+(v2.8) Added a right-click List option for the Selected Entry to have price changes for that ebook, removed if a specific difference or below (up to .99). Added a Settings window option, to not store price changes below a difference of .10.
+Query Results dialog, now also has record number as part of title.
+USERS sub menu added for right-click on List, and the two USER options relocated to that.
+Image Data GUI now has UP and DOWN arrows to go to previous or next ebook entry.
+The text only, Selected Entry Detail option also now allows you to advance to next ebook entry.
+Added a third checkbox for QUERY, that just duplicates the Query All Non-Favorites settings.
+NOTE - Any differences that change a Low, High or Current value, are still recorded in the specific records for that, per ebook. As they also are in the Last 5 or so Query results. It is just in the Price History report for an ebook, that they no longer get recorded.
+UP and DOWN arrows on Win XP and earlier, use the Progman.exe file for the icons. That file does not (disappointingly) exist in Win 7 etc, so I have opted for wpdshext.dll in the System32 folder. This is not hard set though, and an entry in the INI file, plus ones for icon ID numbers can be modified there.
+The option to "Show result, but do not store for ebook if change is less than 10 cents (etc)", is hard coded to deal with a difference that is only single digit, so '9' and below. I could make the difference qualification a user specified one, if I get a request (or enough requests) for it. As it is, you can manually specify a value of less than '9', by modifying an INI entry (i.e. '5' would mean '5' and below).
+The third QUERY checkbox, works together with the Right-Click menu item and setting, for a quicker alternative to that menu method. This kind of makes the menu method redundant, and probably should have been done this way in the first place. For now, I'm leaving the original method as an option.
+
+(v2.9) Added the option of adding an ebook without a price, via a prompt dialog.
+If a price returned during a Query is a new lowest or highest, a comparison with Last price, is also reported.
+NOTES - Some ebooks exist that don't currently show a price. This is usually because they are no longer currently available. Hopefully, when they do become available again, it will be for the same ISBN number the program uses, so that the user gets advised of this availability.
+Previously, you were only told the price difference of the change between last lowest or highest, when the price was a new low or high value. If a big price change occurred, you might not realize it, so this extra check and report has been added.
+
+(v3.0) Added a Report Message line limit, plus a temporary 'Report.txt' file of the full report, and access to it via a right-click Query menu item.
+Some rearrangement of right-click menu items has occurred.
+NOTES - Default line limit is 20 lines, but this can be manually changed in the 'Settings.ini' file.
+A temporary 'Report.txt' file of full report is created for every Query, where there is a result.
+This file gets overwritten on each successful Query with a result, but until then can be viewed via a Query sub item entry on the right-click context menu of the ebook list.
+So whether the report is truncated or not to 20 (etc) lines, the result can be reviewed until it is replaced (overwritten). The report includes the date created, at the top.
+The right-click sub menu entry of 'Selected Entry' has been moved up to immediately below the other two 'Selected Entry' items (i.e. Selected Entry Detail), which is more logically fitting.
+
+(v3.1) Changed the method of determining a connection to the web. A server of User choice and the timeout can now be specified in the program Settings.
+A count of price changes is now displayed in the embedded non Splash version display.
+A price change that matches the lowest or highest on record, but not the last price recorded, is now displayed and (depending on settings) recorded.
+NOTE - This was implemented because I was experiencing regular failures with the original method in more recent times. It was also slower than what occurs now.
+As a price change is detected, it can now be shown instantly as part of an incrementing total.
+A bugfix of sorts for a price change that was being overlooked, due to a match with the lowest or highest on record.
+
+(v3.2) Changed the width of the Current (8th) column, so it can accomodate a trailing asterisk. This is a non permanent asterisk that only displays during a Query if the price changed.
+When adding a new ebook, if CANCEL is clicked on subsequent additions, while the CTRL key is held down, the input field will be filled again by any suitable content on the clipboard.
+Program Information expanded and improved on second dialog screen.
+When a Query has finished, instead of displaying (in non flash mode) the word 'Stopped', it now displays the word 'Finished' and an additional count of changes, until mouse is moved.
+Timer and field added for Query (hours:mins:secs).
+Bugfix related to sorting and asterisk.
+NOTE - The 8th column asterisks only exist while the program remains running or until a sort or change of user occurs. It is suggested that you may want to do a sort, to clear these asterisks before doing any subsequent Queries, as existing ones are not removed during another Query.
+If the option to keep presenting the ADD URL input box is enabled, then the new improvement comes into effect when clicking CANCEL with the CTRL key held down. Normally, after clicking OK for the first addition of a new ebook entry, the input field is presented again, but blank. At this point, in the past, you were required to manually paste the URL for any subsequent ebooks. Instead, you can now click CANCEL (with CTRL) to have this automated (provided you have indeed copied a URL to the clipboard first). In effect, when adding multiple ebooks, you are clicking OK & CANCEL repeatedly.
+The bugfix, was related to sorting via the Low (6th) column, where I had forgotten to implement removal of the asterisk before doing a price comparison between Start and Current price. Program Information now explains a bit more (on second dialog screen) about sorting options and results, with the main advice being to view the Current (8th) column for the resulted impact. That last is particularly relevant when sorting the Low (6th) column, as the true end result is not shown in that column, but the Current (8th) one. The result may seem somewhat confusing, unless you remember, that entries with a decrease in price since ebook was added, are shown first, followed by unchanged prices next, and those with an increase in price, last.
+Showing 'Finished' and changed count seems more intuitive than just displaying 'Stopped', and means you can look or walk away, and still see the count on your return, before moving the mouse.
+
+(v3.3) Changed the 'Get Missing -> Image Data' option, so that any existing file can be replaced on OK from a query prompt dialog.
+NOTE - A quick simple update for a discovered missing feature previously overlooked.
+
+(v3.4) If the current price for an ebook entry gains an asterisk during a Query, then this now persists after all but a program closure. This means that you can sort or change user and later return to the original user and any asterisks will be restored.
+Added a hash (#) indicator in the Current price column, when either a web page is not found or the price cannot be determined, during a Query. The hash does not persist after a sort, change of user or program closure, etc.
+Time Taken for a Query is now shown on the Report dialog and in the temporary text file.
+NOTE - Just minor improvements to make use of the program a little easier, by being more informative.
+
+(v3.5) A minor update while still working on the major v4.0 update.
+The timer being used and displayed during a Query, is now optional.
+The 'Settings window has been shortened in height and doubled in width to accomodate new and future features.
+A 'Restore after last Query' right-click option has been added, to return prices and related to their previous values.
+Selected Entry Detail (text only) and Selected Entry Detail (image + text) have both been relocated to a a submenu called Selected Entry Detail, and renamed to be suitable.
+NOTES - Due to some weird bug I've only experienced once after much use of v3.4, I have been working on a major update (v4.0). As a stop gap until that is finished, and because the issue or bug which gave price errors for me after a Query, has never happened again thus far, I have created v3.5. It seems to me, that this elusive bug is probably related to the new timer element introduced in v3.4, so that is now optional, and I have provided a basic limited restore option, that can be used immediately after a Query, to return things to the way they were, if price errors are noticed. The restore option may be necessary, because using one of the optional backup files, does not cater for added or removed ebooks that may have occurred since the last backup. The new v4.0 is set to correct that when completed. Thus far no-one else has reported the elusive issue, so continuing to use v3.4 should be fine, but upgrading to v3.5 is recommended for better peace of mind.
+
+(v3.6) Another minor update while still working on the major v4.0 update.
+Private Comments are now supported and separate from previous Comments, which are now called Shared.
+Image Data window can now be viewed whether Image Data exists or not.
+Renaming of a Title or Author, now creates a respective backup key, and has restore options.
+NOTES - When the Image Data doesn't exist, you still get the warning, but not when using UP and DOWN arrows. Private Comments can be viewed in the same manner as Shared Comments, but can only be modified via the right-click option. Shared Comments are not truly shared in this version, but they become fully so in the upcoming v4.0. In fact, having Private and Shared settings in this version, is just a prepatory aid for the v4.0 Updater, to maintain secrecy where needed.
+
+(v3.7) Bugfix for Timer Label causing a miscount of control numbers when swapping users in certain scenario. Prompt when making a Query from relocated bought ebooks user. Private Comments are now queried when copying or moving an ebook to another user, if they exist for that ebook. All Shared Comments are now stored and read from the shared file 'Comments.ini', though they still also exist in each user file for now, if no longer referenced or updated there. Any conflicts during this updating change, between users, meant comments were combined but separated by a pipe '|' character.
+
+(v3.8) Program is broken as far as getting prices automatically from Amazon, but a 'manual' mode has been added, and set by default, but can be reset to 'automatic' in program settings. The manual mode allows you to do your usual Query (one or ALL), and presents you with an Input box to manually paste the price you have copied from the ebook webpage that has been executed. You can stop at anytime, by clicking the Cancel button. The usual Report will be displayed and any changes stored.
+NOTE - You cannot currently ADD any new ebooks to the list with this version, but I will address that issue soon.
+NOTES - If the program is not running with the On Top setting enabled, then it will be enabled at the end of a Query ALL, to ensure the window is visible when restored. During a Query ALL, the main program window is minimized and a floating Input Box appears top left of screen for each item queried. Clicking Cancel will exit the Query All process. The floating Input Box relies on an executable called CheckForWin.exe, to ensure it is set on top by the program. Before the Input Box is presented, CheckForWin.exe is executed and the URL for the currently selected ebook is executed, and the Amazon web page should appear shortly afterward in your default browser. You then highlight and copy the current price from the webpage, and paste it over the previous current price displayed in the Input Box. You then click OK, and if you wish to, close your browser or browser tab for that ebook.
+
+(v3.9) Program can now have ebooks added to it manually, when in 'manual' mode.
+The Timer and Wait labels are now dealt with correctly, by being hidden when not required or wanted.
+An Input Box is continually presented for user to manually add an Ebook's details (Title, etc).
+No other fix has been added yet, to deal with broken status in regard to automatic price checking.
+That last, also includes not automatically getting details when adding ebooks. I may do that next.
+NOTES - Adding an ebook manually, still requires an Internet connection, though it is only checked and not used. This is because of the ISBN element, which is a requirement. It is reasonable to expect, that you will need to have the Amazon web page for the ebook, available, so you can copy the relevant detail from it, to paste into the Input Box fields. Clicking CANCEL at any point, will abort ADD and remove any detail provided so far. Clicking OK in the case of Pre-Order or Book Description, without changing the displayed default text, is seen the same as clearing the default text to none. Adding a Book Description relies on a clipboard comparison, to overcome the 254 character count limit of an Input field. It is also then able to deal with carriage returns etc.
+
+(v4.0) A Query ALL can now start at the currently selected entry, via a prompt.
+An option to auto close current browser tab (using Ctrl + W), has been added for when getting price in manual mode. Input Box window widened slightly in ADD Ebook manual process.
+A delay option has been added, to allow a pause for specified seconds between queries during a Query ALL. This delay may be helpful in preventing erroneous detection as a malicious scraper.
+Ebook cover can now be a .jpg file, in the Image Data folder, where filename matches ISBN ID.
+Bugfix for whitespace in Price in manual mode (sorry about that).
+
+
+(v5.0) MAJOR CHANGES.
+An Updater program created for once off use with older versions of the program.
+A master 'Catalog.ini' has been instigated, which on program start gets compared to current User file, and implements a 'Restore' of any missing entries found in the User file to that file.
+Along with 5 backups of the current User file, five backups for both the 'Settings.ini' and 'Catalog.ini' files are now also created, when file dates have (content has) changed.
+Renaming of a Title or Author, now creates a respective backup key, and has restore options.
+Private Comments are now supported and separate from previous Comments, which are now shared.
+Image Data window can now be viewed whether Image Data exists or not.
+NOTES - When the Image Data doesn't exist, you still get the warning, but not when using UP and DOWN arrows. Private Comments can be viewed in the same manner as Shared Comments, but can only be modified via the right-click option. A restore option for a renamed Title or Author has not yet been added and may not be, so any restoration will involve manual editing of the 'Catalog.ini' file.
+
+
+OTHER NOTES
+===========
+The SAVE LIST option is nothing more than opening the INI file in Notepad.
+I was gonna do a more elegant solution, but decided I probably wouldn't use it much, if at all.
+Anyway, it does the trick well enough I reckon, and a good way to save a backup.
+I've stuck to using the simple approach to get the information from HTML source ... no regex etc for me, just basic StringSplit and StringInString.
+If any required detail is not gleaned, then the entry fails to be added to the database. It will fail, if there is no title, price or author/editor.
+It can be quite slow to query a lot of entries, with the Query ALL option (checkbox). Still, it is much faster than manually going to those pages. The idea, is you do a full query (ALL), probably once a day.
+All suitable links start with the same path (changed), before what I presume is the ISBN number.
+The program strips http://www.amazon.com/dp/ off from the start (now modified) to begin getting that presumed ISBN. That is a required element for the program to work adding an item.
+
