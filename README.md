@@ -25,6 +25,14 @@ Generally these programs are used in the following loose order, and all are crea
 
 (11) Add Book & All Formats To Calibre (optional)
 
+(12) Slow Checker
+
+(13) Fast Checker
+
+(14) Manual Grab
+
+(15) Recent Additions
+
 You use one or more of the above, along with programs like Kindle4PC, Adobe Digital Editions and Calibre, and various Calibre plugins.
 
 If you just purchase Kindle Ebooks, then you would only use (1), maybe (3), (5), (7), maybe (8), (9), maybe (10) and or (11).
